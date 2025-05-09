@@ -26,6 +26,7 @@ dotenv.config();
 
 AllRoutes(app);
 app.use(errorMiddleware);
+app.use("/uploads",express.static("uploads"))
 
 app.listen(process.env.PORT ||4000, ()=>{
    console.log(`App listen on Port : ${process.env.PORT}`) 
