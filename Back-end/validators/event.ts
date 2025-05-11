@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import { check } from "express-validator";
 import usersModel from "../Models/userModel";
-import validatorMiddleware from "../middlware/validatorMiddleware";
+import validatorMiddleware from "../middlwares/validatorMiddleware";
 
 export const createEventValidator: RequestHandler[] = [
   check('name')

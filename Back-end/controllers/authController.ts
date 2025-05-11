@@ -3,8 +3,8 @@ import asyncHandler from 'express-async-handler';
 import usersModel from '../Models/userModel';
 import { Users } from '../Interfaces/userInterface';
 import bcrypt from 'bcryptjs';
-import customErrors from '../middlware/Errors';
-import { createToken } from '../middlware/createToken';
+import customErrors from '../middlwares/Errors';
+import { createToken } from '../middlwares/createToken';
 import Jwt , {JwtPayload} from 'jsonwebtoken';
 
 export const signup = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {

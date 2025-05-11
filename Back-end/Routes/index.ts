@@ -1,5 +1,5 @@
 import { Application, Request, Response, NextFunction } from "express";
-import customErrors from "../middlware/Errors";
+import customErrors from "../middlwares/Errors";
 import authRoute from "./authRoute";
 import eventRoute from "./eventRoute";
 import bookingRoute from "./bookingRoute";

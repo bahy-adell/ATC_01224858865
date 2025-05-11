@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import database from './DB_config/database';
 import AllRoutes from './Routes';
 import cors from 'cors';
-import {errorMiddleware} from './middlware/globalError';
+import {errorMiddleware} from './middlwares/globalError';
 
 const app : express.Application = express();
 app.use(express.json());

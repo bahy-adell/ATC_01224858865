@@ -3,9 +3,9 @@ import eventModel from "../Models/eventModel";
 import asyncHandler from "express-async-handler";
 import sharp from "sharp";
 import path from "path";
-import customErrors from "../middlware/Errors";
-import { uploadSingleImage } from "../middlware/uploadImages";
-
+import customErrors from "../middlwares/Errors";
+import { uploadSingleImage } from "../middlwares/uploadImages";
+import Features from "../middlwares/features";
 
 export const createEvent = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 
@@ -56,9 +56,13 @@ export const getEvent = asyncHandler(async (req: Request, res: Response, next: N
 });
 
 export const getAllEvents = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
- const event = await eventModel.find();
-  if (!event) {
-    return next(new customErrors('Event not found', 404))
+ 
+  const NumOfEvents = await eventModel.countDocuments();
+
+  const features = new Features(req.query,eventModel.find()).filter().pagination(NumOfEvents);
+  const events = await features.mongooseQuery;
+  if (!events||events.length === 0) {
+    return next(new customErrors('Events not found', 404))
   }
-  res.status(200).json({ data: event });
+  res.status(200).json({ pagination: features.paginationResult , data: events });
 });
