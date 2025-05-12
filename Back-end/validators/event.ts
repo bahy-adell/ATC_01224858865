@@ -5,19 +5,19 @@ import validatorMiddleware from "../middlwares/validatorMiddleware";
 
 export const createEventValidator: RequestHandler[] = [
   check('name')
-    .notEmpty().withMessage('name is required'),
+    .notEmpty().withMessage('name_required'),
   check('description')
-    .notEmpty().withMessage('description is required'),
+    .notEmpty().withMessage('description_required'),
   check('category')
-    .notEmpty().withMessage('category is required'),
+    .notEmpty().withMessage('category_required'),
   check('date')
-    .notEmpty().withMessage('date is required'),
+    .notEmpty().withMessage('date_required'),
   check('venue')
-    .notEmpty().withMessage('venue is required'),
+    .notEmpty().withMessage('venue_required'),
   check('price')
-    .notEmpty().withMessage('price is required').isNumeric().withMessage('Invalid price'),
+    .notEmpty().withMessage('price_required').isNumeric().withMessage('invalid_price'),
   check('image')
-    .notEmpty().withMessage('image is required'),
+    .notEmpty().withMessage('image_required'),
   
   validatorMiddleware
 ]
@@ -25,6 +25,6 @@ export const createEventValidator: RequestHandler[] = [
 export const updateEventValidator: RequestHandler[] = [
   
   check('price')
-  .isNumeric().withMessage('Invalid price'),
+  .isNumeric().withMessage('invalid_price'),
   validatorMiddleware
 ]

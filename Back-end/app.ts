@@ -4,7 +4,7 @@ import database from './DB_config/database';
 import AllRoutes from './Routes';
 import cors from 'cors';
 import {errorMiddleware} from './middlwares/globalError';
-
+import i18nMiddleware from './middlwares/i18n'
 const app : express.Application = express();
 app.use(express.json());
 app.use(cors({
@@ -24,9 +24,10 @@ app.options('*', cors());
 database();
 dotenv.config();
 
+app.use(i18nMiddleware);
 AllRoutes(app);
 app.use(errorMiddleware);
-app.use("/uploads",express.static("uploads"))
+app.use("/uploads",express.static("uploads"));
 
 app.listen(process.env.PORT ||4000, ()=>{
    console.log(`App listen on Port : ${process.env.PORT}`) 

@@ -13,13 +13,13 @@ export const bookEvent = asyncHandler(async (req: any, res: Response, next: Next
     const event = await eventModel.findById(eventId);
     if(!event)
     {
-        res.status(404).json({message : "Event No longer Exist"})
+        res.status(404).json({message : req.t("event_not_exist")})
     }
 
     const exictingBook = await bookingModel.findOne({userId:userId ,eventId: eventId})
     if(exictingBook)
     {
-        res.status(400).json({message : "You have a ticket already "})
+        res.status(400).json({message :  req.t("ticket_already")})
         return;
     }
 
@@ -33,7 +33,7 @@ export const bookEvent = asyncHandler(async (req: any, res: Response, next: Next
 );
 
  res.status(201).json({
-        message : "Congrats. Enjoy Your Event" ,
+        message :  req.t("congrats_enjoy_event") ,
         data: newBook
     })
 
@@ -46,10 +46,10 @@ export const getUserTickets = asyncHandler(async (req: any, res: Response, next:
     const tickets = await bookingModel.find({userId:userId});
 
   if (tickets.length==0)  {
-    res.status(404).json({ message: "You have no ticket" });
+    res.status(404).json({ message:  req.t("no_ticket") });
     return;
   }
-  res.status(200).json({ message:"Ticket found" ,data: tickets });
+  res.status(200).json({ message: req.t("ticket_found") ,data: tickets });
 });
 
 export const getEventTickets = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
@@ -58,8 +58,8 @@ export const getEventTickets = asyncHandler(async (req: any, res: Response, next
     const tickets = await bookingModel.find({eventId:eventId});
 
   if (tickets.length==0) {
-    res.status(404).json({ message: "No tickets yet for this Event" });
+    res.status(404).json({ message: req.t("no_tickets_yet") });
     return;
   }
-  res.status(200).json({ message:"Tickets found" ,data: tickets });
+  res.status(200).json({ message:req.t("tickets_found") ,data: tickets });
 });

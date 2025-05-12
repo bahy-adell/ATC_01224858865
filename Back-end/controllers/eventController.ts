@@ -33,24 +33,24 @@ export const resizeImage = asyncHandler(async (req: Request, res: Response, next
 export const updateEvent = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
  const event = await eventModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
   if (!event) {
-    return next(new customErrors('Event not found', 404))
+    return next(new customErrors(req.t("event_not_found"), 404))
   }
-  res.status(200).json({  message: "Updated successfully",data: event });
+  res.status(200).json({  message: req.t("updated_successfully"),data: event });
 });
 
 export const deleteEvent = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
  const event = await eventModel.findByIdAndDelete(req.params.id);
   if (!event) {
-    return next(new customErrors('Event not found', 404))
+    return next(new customErrors(req.t("event_not_found"), 404))
   }
   event.save();
-  res.status(204).json({ message: "Deleted successfully" });
+  res.status(204).json({ message:req.t("deleted_successfully")});
 });
 
 export const getEvent = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
  const event = await eventModel.findById(req.params.id);
   if (!event) {
-    return next(new customErrors('Event not found', 404))
+    return next(new customErrors(req.t("event_not_found"), 404))
   }
   res.status(200).json({ data: event });
 });
@@ -62,7 +62,7 @@ export const getAllEvents = asyncHandler(async (req: Request, res: Response, nex
   const features = new Features(req.query,eventModel.find()).filter().pagination(NumOfEvents);
   const events = await features.mongooseQuery;
   if (!events||events.length === 0) {
-    return next(new customErrors('Events not found', 404))
+    return next(new customErrors(req.t("event_not_found"), 404))
   }
   res.status(200).json({ pagination: features.paginationResult , data: events });
 });
