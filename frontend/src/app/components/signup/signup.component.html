@@ -1,0 +1,60 @@
+<div class="body">
+    <div class="container" id="b-container">
+        <form class="form" id="b-form" [formGroup]="signupForm" (ngSubmit)="signup(signupForm)">
+            <h2 class="form_title title">Create Account</h2>
+
+            <div class="form-group">
+                <input class="form__input" type="text" formControlName="name" placeholder="Full Name" />
+                @if ((signupForm.get('name')?.touched || submitted) && signupForm.get('name')?.errors) {
+                <p class="error-message">
+                    @if (signupForm.get('name')?.errors?.['required']) { Full name is required }
+                    @if (signupForm.get('name')?.errors?.['minlength']) { Full name must be at least 3 characters }
+                </p>
+                }
+            </div>
+
+            <div class="form-group">
+                <input class="form__input" type="email" formControlName="email" placeholder="Email" />
+                @if ((signupForm.get('email')?.touched || submitted) && signupForm.get('email')?.errors) {
+                <p class="error-message">
+                    @if (signupForm.get('email')?.errors?.['required']) { Email is required }
+                    @if (signupForm.get('email')?.errors?.['email']) { Please enter a valid email }
+                </p>
+                }
+                @if(emailErrors!==''){
+                  <p class="error-message">{{emailErrors}}</p>
+                 }
+            </div>
+
+            <div class="form-group">
+                <input class="form__input" type="password" formControlName="password" placeholder="Password" />
+                @if ((signupForm.get('password')?.touched || submitted) && signupForm.get('password')?.errors) {
+                <p class="error-message">
+                    @if (signupForm.get('password')?.errors?.['required']) { Password is required }
+                    @if (signupForm.get('password')?.errors?.['minlength']) { Password must be at least 6 characters }
+                </p>
+                }
+            </div>
+
+            <div class="form-group">
+                <input class="form__input" type="password" formControlName="confirmPassword"
+                    placeholder="Confirm Password" />
+                @if ((signupForm.get('confirmPassword')?.touched || submitted) &&
+                signupForm.get('confirmPassword')?.errors) {
+                <p class="error-message">
+                    @if (signupForm.get('confirmPassword')?.errors?.['required']) { Please confirm your password }
+                    @if (signupForm.get('confirmPassword')?.errors?.['passwordMismatch']) { Passwords do not match }
+                </p>
+                }
+            </div>
+
+            <button type="submit" class="form__button button submit" [disabled]="!signupForm.valid">
+                SIGN UP
+            </button>
+            <p class="login-text">
+                Already have an account?
+                <a routerLink="/login" class="login-link">Login</a>
+            </p>
+        </form>
+    </div>
+</div>

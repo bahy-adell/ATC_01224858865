@@ -1,0 +1,38 @@
+<div class="body">
+    <div class="container" id="a-container">
+      <form class="form" id="a-form" [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+        <h2 class="form_title title">Login</h2>
+  
+        <div class="form-group">
+          <input class="form__input" type="email" formControlName="email" placeholder="Email" />
+          @if ((loginForm.get('email')?.touched || submitted) &&
+          loginForm.get('email')?.errors) {
+          <p class="error-message">
+            @if (loginForm.get('email')?.errors?.['required']) { Email is required }
+            @if (loginForm.get('email')?.errors?.['email']) { Please enter a valid email }
+          </p>
+          }
+        </div>
+  
+        <div class="form-group">
+          <input class="form__input" type="password" formControlName="password" placeholder="Password" />
+          @if ((loginForm.get('password')?.touched || submitted) &&
+          loginForm.get('password')?.errors) {
+          <p class="error-message">
+            @if (loginForm.get('password')?.errors?.['required']) { Password is
+            required } @if (loginForm.get('password')?.errors?.['minlength']) {
+            Password must be at least 6 characters }
+          </p>
+          }
+        </div>
+  
+        <button type="submit" class="form__button button submit" [disabled]="!loginForm.valid">
+          LOGIN
+        </button>
+        <p class="signup-text">
+          Don't have an account?
+          <a routerLink="/signup" class="signup-link">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </div>

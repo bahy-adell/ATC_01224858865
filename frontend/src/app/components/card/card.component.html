@@ -1,0 +1,27 @@
+<div class="event event-1">
+    <div class="card-overview">
+        <img class="event-img" [src]="imgDomain+event.image" [alt]="event.name" title="event">
+        <div class="card">
+            <div class="event-title">
+                <h1>{{event.name}}</h1>
+            </div>
+            <div class="event-details">
+                <div class="dd">
+                    <p>{{event.description|description:15}}</p>
+                    <span class="divider"></span>
+                </div>
+                <div class="dtl">
+                    <div class="contain">
+                        <div class="event-location">{{event.venue}}</div>
+                        <div class="event-date">{{event.date | date}}</div>
+                        <div class="event-time">{{event.date | date:'HH:mm'}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-price">
+                <p>{{event.price|currency}}</p>
+            </div>
+        </div>
+    </div>
+    <button routerLink="/event-details" class="event-button" >Book Now</button>
+</div>

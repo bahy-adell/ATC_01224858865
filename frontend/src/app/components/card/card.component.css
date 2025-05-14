@@ -1,0 +1,152 @@
+.event {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  min-height: 450px;
+  width: 500px;
+  position: relative;
+}
+.event .card-overview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.event .card-overview .event-img {
+  min-width: 250px;
+  max-width: 250px;
+  max-height: 250px;
+  min-height: 250px;
+  position: relative;
+  left: 50px;
+  border-radius: 30px;
+  transition: transform 0.1s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  animation: autoShowRight both;
+  animation-timeline: view(90% 5%);
+}
+.event .card-overview .event-img:hover {
+  transform: scale(1.03);
+}
+.event .card-overview .card {
+  width: 300px;
+  min-height: 450px;
+  background-color: var(--light-secondary);
+  color: var(--background);
+  border: none;
+  -webkit-clip-path: path("M 270,0 A 30,30 0,0,1 300,30 L 300,360 A 30,30 0,0,1 270,390 L 180,390 A 30,30 0,0,0 150,420 A 30,30 0,0,1 120,450 L 30,450 A 30,30 0,0,1 0,420 L 0,390 A 30,30 0,0,1 30,360 A 30,30 0,0,0 60,330 L 60,120 A 30,30 ,0,0,0 30,90A 30,30 0,0,1 0,60 L 0,30 A 30,30 0,0,1 30,0 Z");
+          clip-path: path("M 270,0 A 30,30 0,0,1 300,30 L 300,360 A 30,30 0,0,1 270,390 L 180,390 A 30,30 0,0,0 150,420 A 30,30 0,0,1 120,450 L 30,450 A 30,30 0,0,1 0,420 L 0,390 A 30,30 0,0,1 30,360 A 30,30 0,0,0 60,330 L 60,120 A 30,30 ,0,0,0 30,90A 30,30 0,0,1 0,60 L 0,30 A 30,30 0,0,1 30,0 Z");
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  transition: transform 0.3s ease;
+  animation: autoShowBottom both;
+  animation-timeline: view(90% 5%);
+}
+.event .card-overview .card:hover {
+  transform: translateY(-5px);
+}
+.event .card-overview .card .event-title {
+  margin: 0 auto;
+  max-height: 90px;
+  min-height: 90px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.event .card-overview .card .event-title h1 {
+  font-weight: 900;
+  font-size: 25px;
+}
+.event .card-overview .card .event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 270px;
+  max-width: 300px;
+  position: relative;
+  padding: 0 20px 0 80px;
+}
+.event .card-overview .card .event-details .dd {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.event .card-overview .card .event-details .dd .divider {
+  width: 200px;
+  height: 2px;
+  background-color: var(--text-primary);
+  opacity: 0.2;
+}
+.event .card-overview .card .event-details .dtl .contain {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.event .card-overview .card .event-price {
+  min-width: 150px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.event .card-overview .card .event-price p {
+  margin: auto;
+  font-size: 30px;
+}
+.event .event-button {
+  position: absolute;
+  min-width: 140px;
+  min-height: 50px;
+  border-radius: 30px;
+  top: 400px;
+  background-color: var(--light-primary);
+  border: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  animation: autoShowLeft both;
+  animation-timeline: view(90% 5%);
+}
+.event .event-button:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes autoShowBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes autoShowLeft {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: left;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: left;
+  }
+}
+@keyframes autoShowRight {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+    left: -200px;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=card.component.css.map */

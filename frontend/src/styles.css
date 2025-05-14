@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --light-primary: #0066ff;
+  --light-secondary: #ff6b00;
+  --light-background: #f0f7ff;
+  --light-surface: #ffffff;
+  --light-border: #b3d4ff;
+  --light-text-primary: #001f3f;
+  --light-text-secondary: #003366;
+  --light-text-tertiary: #4d94ff;
+  --dark-primary: #00b4ff;
+  --dark-secondary: #ff8533;
+  --dark-background: #002040;
+  --dark-surface: #003366;
+  --dark-border: #0066cc;
+  --dark-text-primary: #ffffff;
+  --dark-text-secondary: #b3d4ff;
+  --dark-text-tertiary: #4d94ff;
+  --primary: var(--light-primary);
+  --secondary: var(--light-secondary);
+  --background: var(--light-background);
+  --surface: var(--light-surface);
+  --border: var(--light-border);
+  --text-primary: var(--light-text-primary);
+  --text-secondary: var(--light-text-secondary);
+  --text-tertiary: var(--light-text-tertiary);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+}/*# sourceMappingURL=styles.css.map */

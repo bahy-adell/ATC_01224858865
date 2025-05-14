@@ -24,12 +24,11 @@ app.options('*', cors());
 database();
 dotenv.config();
 
+app.use("/uploads",express.static("uploads"));
 app.use(i18nMiddleware);
 AllRoutes(app);
 app.use(errorMiddleware);
-app.use("/uploads",express.static("uploads"));
 
-app.listen(process.env.PORT ||4000, ()=>{
+app.listen(process.env.PORT ||3010, ()=>{
    console.log(`App listen on Port : ${process.env.PORT}`) 
 });  
-

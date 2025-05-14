@@ -1,0 +1,57 @@
+<div class="home">
+    <app-navbar></app-navbar>
+
+    <div class="body">
+        <div class="container">
+
+            <div class="hero">
+                <div class="text">
+                    <h1 class="title">Discover and Book Amazing <span>EVE</span>nts
+                    </h1>
+                    <p class="description">Find the perfect events for you, from concerts and workshops to conferences
+                        and sports.<br>Book your tickets with ease.
+                    </p>
+                </div>
+                <div class="options">
+                    <button class="bookings">My Bookings</button>
+                    <div class="img">
+                    </div>
+                    <button class="browse" routerLink="/all-events">Browse Events</button>
+                </div>
+            </div>
+
+            <div class="events">
+                <div class="events_header">
+                    <h2>Upcoming Events</h2>
+                    <div class="btn-group">
+                        <button type="button" class="btn category-dropdown dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Select Category
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sports</a></li>
+                            <li><a class="dropdown-item" href="#">TECH</a></li>
+                            <li><a class="dropdown-item" href="#">Education</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">All categories</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="events_list">
+                    <!-- <app-most-popular></app-most-popular> -->
+                    @for(event of events; track event._id){
+                    <app-card [event]="event"></app-card>
+                    }
+                </div>
+                <div class="view-more">
+                    <button class="view-more-button" routerLink="/all-events">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <app-footer></app-footer> -->
+</div>

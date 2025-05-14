@@ -1,0 +1,212 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.body {
+  min-width: 100%;
+  margin-bottom: 200px;
+}
+.body .container {
+  min-width: 100%;
+}
+.body .container .hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  height: 84dvh;
+  background-color: var(--light-primary);
+  border-radius: 50px;
+}
+.body .container .hero .text {
+  padding: 0 0 0 80px;
+  color: var(--background);
+}
+.body .container .hero .text .title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.body .container .hero .text .title span {
+  color: var(--secondary);
+}
+.body .container .hero .text .description {
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: 80%;
+  line-height: 1.6;
+}
+.body .container .hero .options .img {
+  background-image: url("../../../../public/maineventIMG.png");
+  background-size: cover;
+  background-position: end;
+  width: 500px;
+  height: 500px;
+  margin-right: 80px;
+  -webkit-clip-path: path("M 0,150 A 50,50 0,0,1 50,100 L 200,100 A 50,50 0,0,0 250,50 A 50,50 0,0,1 300,0 L 450,0 A 50,50 0,0,1 500,50 L 500,350  A 50,50 0,0,1 450,400 L 300,400 A 50,50 0,0,0 250,450 A 50,50 0,0,1 200,500 L 50,500 A 50,50 0,0,1 0,450 Z");
+          clip-path: path("M 0,150 A 50,50 0,0,1 50,100 L 200,100 A 50,50 0,0,0 250,50 A 50,50 0,0,1 300,0 L 450,0 A 50,50 0,0,1 500,50 L 500,350  A 50,50 0,0,1 450,400 L 300,400 A 50,50 0,0,0 250,450 A 50,50 0,0,1 200,500 L 50,500 A 50,50 0,0,1 0,450 Z");
+  animation: heartbeat 1s ease-in-out infinite;
+}
+.body .container .hero .options .browse {
+  position: relative;
+  z-index: 1;
+  top: -80px;
+  left: 270px;
+}
+.body .container .hero .options .bookings {
+  position: relative;
+  z-index: 1;
+  top: 80px;
+}
+.body .container .hero .options button {
+  color: var(--background);
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 230px;
+  height: 80px;
+  background-color: var(--light-secondary);
+  -webkit-clip-path: path("M 0,40 A 40,40 0,0,1 40,0 L 190,0 A 40,40 0,0,1 230,40 A 40,40 0,0,1 190,80 L 40,80 A 40,40 0,0,1 0,40 Z");
+          clip-path: path("M 0,40 A 40,40 0,0,1 40,0 L 190,0 A 40,40 0,0,1 230,40 A 40,40 0,0,1 190,80 L 40,80 A 40,40 0,0,1 0,40 Z");
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.body .container .hero .options button:hover {
+  background-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.body .container .events {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.body .container .events .events_header {
+  padding: 0 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.body .container .events .events_header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+.body .container .events .events_header .btn-group .category-dropdown {
+  background-color: var(--light-secondary);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.body .container .events .events_header .btn-group .category-dropdown:hover {
+  background-color: var(--primary);
+  color: var(--light-surface);
+}
+.body .container .events .events_list {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-row-gap: 100px;
+}
+.body .container .events .events_list app-card {
+  display: flex;
+  justify-content: center;
+}
+.body .container .events .view-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+.body .container .events .view-more .view-more-button {
+  background: transparent;
+  border: 2px solid var(--text-primary);
+  color: var(--text-primary);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 25px var(--text-primary);
+}
+.body .container .events .view-more .view-more-button:hover {
+  box-shadow: 0 0 40px var(--text-primary);
+  transform: translateY(-2px);
+}
+.body .container .events .view-more .view-more-button:active {
+  transform: translateY(0);
+}
+
+.card {
+  animation: autoShowBottom both;
+  animation-timeline: view(90% 5%);
+}
+
+@keyframes autoShowBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.event-button {
+  animation: autoShowLeft both;
+  animation-timeline: view(90% 5%);
+}
+
+@keyframes autoShowLeft {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: left;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: left;
+  }
+}
+.event-img {
+  animation: autoShowRight both;
+  animation-timeline: view(90% 5%);
+}
+
+@keyframes autoShowRight {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+    left: -200px;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}/*# sourceMappingURL=home.component.css.map */

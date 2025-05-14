@@ -12,6 +12,7 @@
   "no_tickets_yet": "No tickets yet for this Event",
   "tickets_found": "Tickets found",
   "event_not_found": "Event not found",
+  "No_more_events": "No more events",
   "updated_successfully": "Updated successfully",
   "deleted_successfully": "Deleted successfully",
   "name_required": "Name is required",

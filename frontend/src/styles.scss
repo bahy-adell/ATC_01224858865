@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+// SCSS Color Variables
+$light-primary: #0066ff; // Vibrant Blue
+$light-secondary: #ff6b00; // Bright Orange
+$light-background: #f0f7ff; // Light Blue Tint
+$light-surface: #ffffff;
+$light-border: #b3d4ff; // Light Blue Border
+$light-text-primary: #001f3f; // Deep Blue Text
+$light-text-secondary: #003366; // Medium Blue Text
+$light-text-tertiary: #4d94ff; // Light Blue Text
+
+$dark-primary: #00b4ff; // Bright Cyan Blue
+$dark-secondary: #ff8533; // Bright Orange
+$dark-background: #002040; // Deep Blue (converted from hwb)
+$dark-surface: #003366; // Darker Blue
+$dark-border: #0066cc; // Medium Blue Border
+$dark-text-primary: #ffffff;
+$dark-text-secondary: #b3d4ff; // Light Blue Text
+$dark-text-tertiary: #4d94ff; // Medium Blue Text
+
+// CSS Custom Properties for theming
+:root {
+    // Light mode
+    --light-primary: #{$light-primary};
+    --light-secondary: #{$light-secondary};
+    --light-background: #{$light-background};
+    --light-surface: #{$light-surface};
+    --light-border: #{$light-border};
+    --light-text-primary: #{$light-text-primary};
+    --light-text-secondary: #{$light-text-secondary};
+    --light-text-tertiary: #{$light-text-tertiary};
+
+    // Dark mode
+    --dark-primary: #{$dark-primary};
+    --dark-secondary: #{$dark-secondary};
+    --dark-background: #{$dark-background};
+    --dark-surface: #{$dark-surface};
+    --dark-border: #{$dark-border};
+    --dark-text-primary: #{$dark-text-primary};
+    --dark-text-secondary: #{$dark-text-secondary};
+    --dark-text-tertiary: #{$dark-text-tertiary};
+
+    // Default to light mode
+    --primary: var(--light-primary);
+    --secondary: var(--light-secondary);
+    --background: var(--light-background);
+    --surface: var(--light-surface);
+    --border: var(--light-border);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-tertiary: var(--light-text-tertiary);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-primary);
+}
+
+

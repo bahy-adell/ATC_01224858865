@@ -6,7 +6,7 @@ import validatorMiddleware from "../middlwares/validatorMiddleware";
 const eventRoute: Router = Router();
 eventRoute.route('/')
 .post( protectRoute,allowedTo("admin"),uploadImage,resizeImage,createEventValidator,validatorMiddleware,createEvent)
-.get(protectRoute,allowedTo("admin","user"),validatorMiddleware,getAllEvents)
+.get(validatorMiddleware,getAllEvents)
 eventRoute.route('/:id')
 .get(protectRoute,allowedTo("admin","user"),validatorMiddleware,getEvent)
 .put(protectRoute,allowedTo("admin"),uploadImage,resizeImage,updateEventValidator,validatorMiddleware,updateEvent)

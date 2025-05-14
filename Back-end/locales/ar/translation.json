@@ -35,5 +35,6 @@
   "login_email_required": "البريد الإلكتروني مطلوب",
   "login_invalid_email": "البريد الإلكتروني غير صالح",
   "login_password_required": "كلمة المرور مطلوبة",
-  "internal_server_error": "خطأ فى السيرفر"
+  "internal_server_error": "خطأ فى السيرفر",
+   "No_more_events": "لا يوجد المزيد من الاحداث حاليا"
 }

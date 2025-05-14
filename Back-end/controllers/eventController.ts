@@ -62,7 +62,7 @@ export const getAllEvents = asyncHandler(async (req: Request, res: Response, nex
   const features = new Features(req.query,eventModel.find()).filter().pagination(NumOfEvents);
   const events = await features.mongooseQuery;
   if (!events||events.length === 0) {
-    return next(new customErrors(req.t("event_not_found"), 404))
+    return next(new customErrors(req.t("No_more_events"), 404))
   }
   res.status(200).json({ pagination: features.paginationResult , data: events });
 });
