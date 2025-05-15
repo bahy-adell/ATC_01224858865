@@ -7,6 +7,4 @@ export interface Event {
     venue: string;
     date: any;
     category: string;
-    // capacity: number;
-    // time: string;
 }

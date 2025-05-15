@@ -23,25 +23,9 @@
             <div class="events">
                 <div class="events_header">
                     <h2>Upcoming Events</h2>
-                    <!-- <div class="btn-group">
-                        <button type="button" class="btn category-dropdown dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Select Category
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Sports</a></li>
-                            <li><a class="dropdown-item" href="#">TECH</a></li>
-                            <li><a class="dropdown-item" href="#">Education</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">All categories</a></li>
-                        </ul>
-                    </div> -->
                 </div>
 
                 <div class="events_list">
-                    <!-- <app-most-popular></app-most-popular> -->
                     @for(event of events; track event._id){
                     <app-card [event]="event"></app-card>
                     }
@@ -53,5 +37,5 @@
         </div>
     </div>
 
-    <!-- <app-footer></app-footer> -->
+    <app-footer></app-footer>
 </div>

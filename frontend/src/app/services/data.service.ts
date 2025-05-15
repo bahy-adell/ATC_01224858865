@@ -12,7 +12,6 @@ export class DataService {
   currentId = this.eventIdSource.asObservable();
   setEventID(id: string) {
     this.eventIdSource.next(id);
-    console.log(this.currentId + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
   }
 
 }

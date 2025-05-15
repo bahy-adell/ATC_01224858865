@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.page = 1;
     this.loadEvents();
   }
-  ngOnInit(): void {
+  ngOnInit() {
     this._AuthService.checkToken();
     this.imgDomain = this._eventService.eventImages;
 
@@ -52,6 +52,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy(): void { this.subscription.unsubscribe() }
+  ngOnDestroy() { this.subscription.unsubscribe() }
 
 }
