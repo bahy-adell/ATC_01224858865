@@ -13,7 +13,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/all-events">All events</a>
                 </li>
-              
+
+                @if(isToken){
+                <li class="nav-item">
+                    <a class="nav-link" href="/my-tickets">My tickets</a>
+                </li>
+                }
                 @if(isAdmin){
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Dashboard</a>
@@ -29,6 +34,10 @@
                 <button class="btn btn-outline-success search-btn" routerLink="/signup">Signup</button>
                 }@else{
                 <button class="btn btn-outline-success search-btn" (click)="logout()">Logout</button>
+                <!-- <button class="m-2"  routerLink="/profile">
+                    <img src="../../../../public/circle-user-solid.svg" alt="" width="20" height="20">
+                </button> -->
+
                 }
 
             </div>

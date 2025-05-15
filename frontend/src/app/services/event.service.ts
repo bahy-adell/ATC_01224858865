@@ -26,6 +26,6 @@ export class EventService {
   }
 
   getOneEvent(id: string): Observable<any> {
-    return this._HttpClient.get(`${this.hostName}${this.routeName}/${id}`)
+    return this._HttpClient.get(`${this.hostName}${this.routeName}/${id}`,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
 }

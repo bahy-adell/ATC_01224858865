@@ -10,7 +10,7 @@ export class GlobalService {
   authRoute: string = '/api/auth';
   eventRoute:string= '/api/events';
   eventImages: string = `${this.hostName}`
-  // cardRoute:string= '/api/cards';
+  bookRoute:string= '/api/booking';
   // certificatesRoute:string= '/api/certificates';
 
   constructor() { }

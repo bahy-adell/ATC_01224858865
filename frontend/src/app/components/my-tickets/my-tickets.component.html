@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container py-4">
+
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+        <div class="text-center">
+            <h4 class="mb-1">user.name </h4>
+            <p class="mb-0 "> user.email</p>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Booked Tickets</h5>
+        </div>
+        <div class="card-body p-0">
+            <div>
+
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">
+                        <div class=" ">
+                            @for(ticket of tickets; track ticket._id){
+                            <div>
+                                <strong>{{ticket.eventName}} </strong>
+                                <p class="mb-0 ">Date:{{ticket.createdAt | date}} </p>
+                                <p class="mb-0 ">Reference Code:{{ticket.refCode }}</p>
+                                <p class="mb-0 ">Number of tickets:{{ticket.numOfTickets }}</p>
+                                <!-- <p class="mb-0 ">id:{{ticket.eventId }}</p> -->
+                                <hr>
+                            </div>
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- <div class="p-3 text-center text-muted">
+                No tickets booked yet.
+            </div> -->
+
+
+        </div>
+    </div>
+</div>

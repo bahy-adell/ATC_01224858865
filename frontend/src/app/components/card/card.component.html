@@ -1,5 +1,8 @@
 <div class="event event-1">
     <div class="card-overview">
+        @if(isAdmin && atDashboard){
+        <button class="update">Update</button>
+        }
         <img class="event-img" [src]="imgDomain+event.image" [alt]="event.name" title="event">
         <div class="card">
             <div class="event-title">
@@ -23,5 +26,8 @@
             </div>
         </div>
     </div>
-    <button routerLink="/event-details" class="event-button" >Book Now</button>
+    @if(isAdmin && atDashboard){
+    <button class="delete">Delete</button>
+    }
+    <button routerLink="/event-details" class="event-button" (click)="setId(event._id)">Book Now</button>
 </div>

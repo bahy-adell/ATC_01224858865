@@ -1,38 +1,35 @@
- <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 <div class="container my-5">
   <div class="row">
     <div class="col-md-5">
       <div class="main-img">
-        <img class="img-fluid" [src]="imgDomain+event?.image" [alt]="event.name">
-         
+        <img class="img-fluid" [src]="imgDomain+ event.image" [alt]="event.name" title="event image">
+
       </div>
     </div>
 
     <div class="col-md-7">
       <div class="main-description px-2">
-        <div class="category text-bold">{{event?.subcategory?.name}}</div>
-        <div class="event-title text-bold my-3">{{event?.name}}</div>
+        <div class="category text-bold">{{event.category}}</div>
+        <div class="event-title text-bold my-3">{{event.name}}</div>
         <div class="price-area my-4">
-          <p class="new-price text-bold mb-1">{{event?.price}}</p>
-          <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
-          <p class="new-price text-bold mb-1">{{event?.ratingAverage}} &star;</p>
+          <p class="new-price text-bold mb-1">{{event.price}}</p>
         </div>
-
-    
-
       </div>
 
       <div class="event-details my-4">
         <p class="details-title text-color mb-1">event Details</p>
-        <p class="description">{{event?.description}}</p>
+        <p class="description">{{event.description}}</p>
+      </div>
+      <div>
+        <button class="m-2 p-2" (click)="book(event._id)">Book Now</button>
+        <p>{{errorMessage}}</p>
       </div>
 
-       
-       
-       
+
+
     </div>
-   
+
   </div>
-  
+
 </div>
- 
