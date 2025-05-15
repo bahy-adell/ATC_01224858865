@@ -2,6 +2,7 @@ declare namespace NodeJS {
   interface ProcessEnv {
     readonly PORT: any;
     readonly DB: string;
+    readonly MONGODB_URI : string;
     readonly BASE_URL: string;
     readonly APP_NAME: string;
     readonly NODE_ENV: string;
