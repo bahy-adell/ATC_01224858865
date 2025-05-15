@@ -23,4 +23,7 @@ export class BookingService {
   getUserTickets(): Observable<any> {
     return this._HttpClient.get(`${this.hostName}${this.routeName}`,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
+  deleteTicket(id:string): Observable<any> {
+    return this._HttpClient.delete(`${this.hostName}${this.routeName}/${id}`,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
 }

@@ -1,10 +1,7 @@
 <div class="home">
     <app-navbar></app-navbar>
-
     <div class="body">
         <div class="container">
-
-
             <div class="header">
                 <div class="header-text">
                     <h1>All Events</h1>
@@ -22,40 +19,59 @@
                     <button class="m-2 p-2" (click)="setCategory('workshop')">Workshop</button>
                     <button class="m-2 p-2" (click)="setCategory('health')">Health</button>
                 </div>
-
-
             </div>
-
-
-
-
             <div class="events">
                 <div class="events_list">
-
                     @for(event of events; track event._id){
                     <app-card [event]="event"></app-card>
                     }
                 </div>
-                <div class="m-auto mt-5 w-25 ">
-                    <ul class="pagination">
-                        @if(pagination.prev){<li (click)="changePage(pagination.prev)" class="page-item"><button
-                                class="page-link">Previous</button></li>}
-                        @if(pagination.currentPage!==1)
-                        {<li (click)="changePage(1)" class="page-item"><button class="page-link">1</button></li>}
-                        <li class="page-item "><button class="page-link current">{{pagination.currentPage}}</button>
-                        </li>
-                        @if(pagination.currentPage!==pagination.totalPages)
-                        {<li (click)="changePage(pagination.totalPages!)" class="page-item"><button
-                                class="page-link">{{pagination.totalPages}}</button></li>}
-                        @if(pagination.next){<li (click)="changePage(pagination.next)" class="page-item"><button
-                                class="page-link">Next</button></li>}
-                    </ul>
+            </div>
+            <div class="m-auto mt-5 w-25 ">
+                <ul class="pagination">
 
-                    <p class="error-message">{{errorMessage}}</p>
+                    @if(pagination.prev){
+                    <li (click)="changePage(pagination.prev)" class="page-item">
+                        <button class="page-link">Previous</button>
+                    </li>
+                    }
 
-                </div>
+                    @if(pagination.currentPage!==1){
+                    <li (click)="changePage(1)" class="page-item">
+                        <button class="page-link">1</button>
+                    </li>
+                    }
 
+                    @if(pagination.currentPage!==1 && pagination.currentPage!==(pagination.totalPages!+1)){
+                    <li class="page-item">
+                        <button class="page-link">...</button>
+                    </li>
+                    }
 
+                    <li class="page-item ">
+                        <button class="page-link current  current-page">{{pagination.currentPage}}</button>
+                    </li>
+
+                    @if(pagination.currentPage!==pagination.totalPages &&
+                    pagination.currentPage!==(pagination.totalPages!-1)){
+                    <li class="page-item">
+                        <button class="page-link">...</button>
+                    </li>
+                    }
+
+                    @if(pagination.currentPage!==pagination.totalPages){
+                    <li (click)="changePage(pagination.totalPages!)" class="page-item">
+                        <button class="page-link">{{pagination.totalPages}}</button>
+                    </li>}
+
+                    @if(pagination.next){
+                    <li (click)="changePage(pagination.next)" class="page-item">
+                        <button class="page-link">Next</button>
+                    </li>
+                    }
+
+                </ul>
+                <p class="error-message">{{errorMessage}}</p>
             </div>
         </div>
     </div>

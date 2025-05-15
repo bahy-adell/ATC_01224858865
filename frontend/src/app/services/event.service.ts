@@ -28,4 +28,14 @@ export class EventService {
   getOneEvent(id: string): Observable<any> {
     return this._HttpClient.get(`${this.hostName}${this.routeName}/${id}`,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
   }
+
+  createEvent(data: any): Observable<any> {
+    return this._HttpClient.post(`${this.hostName}${this.routeName}`,data,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
+  updateEvent(data: any , id :string): Observable<any> {
+    return this._HttpClient.put(`${this.hostName}${this.routeName}/${id}`,data,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
+  deleteEvent(id :string): Observable<any> {
+    return this._HttpClient.delete(`${this.hostName}${this.routeName}/${id}`,{ headers: { authorization: `Bearer ${localStorage.getItem('user')}` } })
+  }
 }

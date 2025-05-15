@@ -23,8 +23,33 @@ export const createEventValidator: RequestHandler[] = [
 ]
 
 export const updateEventValidator: RequestHandler[] = [
-  
+check('name')
+    .optional()
+    .isString().withMessage('invalid_name'),
+
+  check('description')
+    .optional()
+    .isString().withMessage('invalid_description'),
+
+  check('category')
+    .optional()
+    .isIn(["tech", "design", "business", "education", "workshop", "health"])
+    .withMessage('invalid_category'),
+
+  check('date')
+    .optional()
+    .isISO8601().withMessage('invalid_date'),
+
+  check('venue')
+    .optional()
+    .isString().withMessage('invalid_venue'),
+
   check('price')
-  .isNumeric().withMessage('invalid_price'),
-  validatorMiddleware
+    .optional()
+    .isNumeric().withMessage('invalid_price'),
+
+  check('image')
+    .optional()
+    .isString().withMessage('invalid_image'),
+     validatorMiddleware
 ]

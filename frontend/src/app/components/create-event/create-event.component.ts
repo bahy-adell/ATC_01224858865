@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EventService } from '../../services/event.service';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-create-event',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NavbarComponent],
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.scss'
 })
 export class CreateEventComponent {
  eventForm: FormGroup;
   selectedImage: File | null = null;
+  errorMessage ="" ;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder ,private _EventService:EventService) {
     this.eventForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -28,7 +31,7 @@ export class CreateEventComponent {
     if (file) this.selectedImage = file;
   }
 
-  onSubmit(): void {
+  onSubmit(){
     if (this.eventForm.invalid) return;
 
     const formData = new FormData();
@@ -40,14 +43,14 @@ export class CreateEventComponent {
       formData.append('image', this.selectedImage);
     }
 
-    // this.http.post('http://localhost:3000/api/events', formData).subscribe({
-    //   next: (res) => {
-    //     console.log('Event created:', res);
-    //     this.eventForm.reset();
-    //   },
-    //   error: (err) => {
-    //     console.error('Creation failed:', err);
-    //   }
-    // });
+    this._EventService.createEvent(formData).subscribe({
+      next: (res) => {
+        console.log('Event created:', res);
+        this.eventForm.reset();
+      },
+      error: (err) => {
+        this.errorMessage =err.error.message;
+      }
+    });
   }
 }

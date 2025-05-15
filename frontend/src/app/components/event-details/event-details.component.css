@@ -1,1 +1,113 @@
-/*# sourceMappingURL=event-details.component.css.map */
+.container .row .main-img img {
+  border-radius: 4rem;
+  height: 500px;
+  width: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container .row .details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+.container .row .details-container .main-description .category {
+  position: absolute;
+  left: 520px;
+  top: 180px;
+  background-color: var(--primary);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 999rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 20px var(--text-primary);
+}
+.container .row .details-container .main-description .event-title {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.container .row .details-container .main-description .description {
+  padding-left: 15px;
+  font-size: 1.2rem;
+}
+.container .row .details-container .event-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  height: 100%;
+}
+.container .row .details-container .event-details .details-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+.container .row .details-container .event-details .bold {
+  font-weight: 900;
+}
+.container .row .details-container .book-now-container {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.container .row .details-container .book-now-container button {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background-color: var(--secondary);
+  color: var(--text-primary);
+  width: 200px;
+  border-radius: 999rem;
+  border: none;
+}
+.container .row .details-container .book-now-container button:hover {
+  background-color: var(--primary);
+  color: var(--background);
+  box-shadow: 0px 0px 20px var(--text-primary);
+  transition: all 0.2s ease-in-out;
+}
+
+@keyframes popoverFadeIn {}
+.custom-popover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  height: 300px;
+  text-align: center;
+  animation: popoverFadeIn 0.2s ease-in-out;
+}
+.custom-popover h2 {
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.custom-popover .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+}
+.custom-popover .content p {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.custom-popover .content p a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: bold;
+}
+.custom-popover .content p a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=event-details.component.css.map */

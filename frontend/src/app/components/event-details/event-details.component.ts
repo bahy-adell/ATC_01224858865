@@ -1,59 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { EventService } from '../../services/event.service';
-import { DataService } from '../../services/data.service';
 import { BookingService } from '../../services/booking.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-event-details',
-  imports: [NavbarComponent, FooterComponent],
+  imports: [NavbarComponent, FooterComponent, CurrencyPipe, DatePipe],
   templateUrl: './event-details.component.html',
   styleUrl: './event-details.component.scss'
 })
-export class EventDetailsComponent {
+export class EventDetailsComponent implements OnInit, OnDestroy {
   subscription: any;
   id: string = '';
   imgDomain: string = '';
   event: any = {};
   errorMessage: string = ""
+  Message: string = ""
   tickets: number = 0;
-
-  constructor(private _EventService: EventService, private _bookingService: BookingService, private _router: Router, private _dataService: DataService) { }
+  isAdmin!:boolean;
+  constructor(
+    private _EventService: EventService,
+    private _bookingService: BookingService,
+    private _authService:AuthService,
+    private _router: Router,
+    private _route: ActivatedRoute
+  ) {
+    this.isAdmin = this._authService.isAdmin();
+   }
 
   loadEvent() {
-    this.subscription = this._EventService.getOneEvent(this.id).subscribe({
-      next: (res) => {
-        this.event = res.data;
-        console.log(this.event)
-      }, error: (err) => {
-        console.log(err)
-      }
-    })
+    if (this.id && this.id.trim() !== '') {
+      this.subscription = this._EventService.getOneEvent(this.id).subscribe({
+        next: (res) => {
+          this.event = res.data;
+          console.log(this.event)
+        }, error: (err) => {
+          console.log(err)
+        }
+      })
+    }
   }
 
-  loadTickets() {
-    this.subscription = this._bookingService.getUserTickets().subscribe({
-      next: (res) => {
-        this.tickets = res.data.NumOfTickets;
-        console.log(this.tickets);
-      }
-    })
-  }
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.imgDomain = this._EventService.eventImages;
-    this._dataService.currentId.subscribe((id: string) => {
-      this.id = id;
+    this._route.params.subscribe(params => {
+      this.id = params['id'];
       this.loadEvent();
-      this.loadTickets();
     });
+ 
+  }
+  delete(id :string){
+    this._EventService.deleteEvent(id).subscribe({
+      next: (res) => {
+      },
+      error: (err) => {
+         this.errorMessage = err.error.message;
+      }
+    });
+     
   }
   book(id: string) {
     this.subscription = this._bookingService.bookEvent(id).subscribe({
       next: (res) => {
-        this._router.navigate(['/home']);
       }, error: (err) => {
         console.log(err)
         this.errorMessage = err.error.message;
@@ -61,6 +74,7 @@ export class EventDetailsComponent {
     })
   }
 
-
-  ngOnDestroy(): void { this.subscription.unsubscribe(); }
+  ngOnDestroy(): void { 
+      this.subscription.unsubscribe(); 
+  }
 }

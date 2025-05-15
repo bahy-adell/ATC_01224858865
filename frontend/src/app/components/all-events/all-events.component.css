@@ -28,7 +28,8 @@ app-navbar {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 75vh;
+  margin-bottom: 100px;
 }
 .body .container .header .header-text h1 {
   font-size: 6rem;
@@ -49,6 +50,19 @@ app-navbar {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
+}
+.body .container .header .filters button {
+  background-color: var(--light-secondary);
+  color: var(--background);
+  background-color: var(--primary);
+  border-radius: 99rem;
+  margin: 0 5px;
+  border: none;
+  font-weight: 900;
+}
+.body .container .header .filters button:hover {
+  background-color: var(--secondary);
+  color: var(--background);
 }
 .body .container .header .filters .btn-group {
   position: relative;
@@ -155,4 +169,28 @@ app-navbar {
 }
 .body .container .events .view-more .view-more-button:active {
   transform: translateY(0);
+}
+.body .container .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.body .container .pagination .page-item .page-link {
+  background-color: var(--light-secondary);
+  color: var(--background);
+  background-color: var(--primary);
+  border-radius: 99rem;
+  margin: 0 5px;
+  border: none;
+  font-weight: 900;
+}
+.body .container .pagination .page-item .page-link:hover {
+  background-color: var(--secondary);
+  color: var(--background);
+}
+.body .container .pagination .page-item .current-page {
+  background-color: var(--secondary);
+  color: var(--background);
+  box-shadow: 0 0 10px var(--text-primary);
 }/*# sourceMappingURL=all-events.component.css.map */

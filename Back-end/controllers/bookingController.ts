@@ -4,6 +4,7 @@ import bookingModel from "../Models/bookingModel";
 import eventModel from "../Models/eventModel";
 import { Users } from "../Interfaces/userInterface";
 import { utils } from "../middlwares/features";
+import customErrors from "../middlwares/Errors";
 // interface newRequest extends Request { user?: Users; }
 
 export const bookEvent = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
@@ -58,7 +59,6 @@ export const getUserTickets = asyncHandler(async (req: any, res: Response, next:
 });
 
 export const getEventTickets = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
-  // const userId = req.user?._id;
   const eventId = req.params.id;
   const tickets = await bookingModel.find({ eventId: eventId });
 
@@ -67,4 +67,13 @@ export const getEventTickets = asyncHandler(async (req: any, res: Response, next
     return;
   }
   res.status(200).json({ message: req.t("tickets_found"), data: tickets });
+});
+
+export const deleteTicket = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  const Id = req.params.id;
+  const ticket = await bookingModel.findByIdAndDelete(req.params.id);
+  if (!ticket) {
+    return next(new customErrors(req.t("ticket_not_found"), 404))
+  }
+  res.status(204).json({ message: req.t("deleted_successfully") });
 });

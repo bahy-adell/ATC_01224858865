@@ -30,8 +30,8 @@
             </ul>
             <div class="d-flex" role="search">
                 @if(!isToken){
-                <button class="btn btn-outline-success search-btn" routerLink="/login">Login</button>
-                <button class="btn btn-outline-success search-btn" routerLink="/signup">Signup</button>
+                <button class="btn btn-outline-success search-btn m-1" routerLink="/login">Login</button>
+                <button class="btn btn-outline-success search-btn m-1" routerLink="/signup">Signup</button>
                 }@else{
                 <button class="btn btn-outline-success search-btn" (click)="logout()">Logout</button>
                 <!-- <button class="m-2"  routerLink="/profile">

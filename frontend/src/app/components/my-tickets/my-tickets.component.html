@@ -1,45 +1,43 @@
 <app-navbar></app-navbar>
 <div class="container py-4">
-
-    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+    <!-- <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
         <div class="text-center">
             <h4 class="mb-1">user.name </h4>
             <p class="mb-0 "> user.email</p>
         </div>
-    </div>
-
-
+    </div> -->
     <div class="card">
-        <div class="card-header bg-success text-white">
-            <h5 class="mb-0">Booked Tickets</h5>
+        <div class="card-header">
+            <h2>Booked Tickets</h2>
         </div>
-        <div class="card-body p-0">
+        <div class="card-body">
             <div>
-
                 <ul class="list-group list-group-flush">
-
                     <li class="list-group-item">
-                        <div class=" ">
+                        <div class="ticket-list">
                             @for(ticket of tickets; track ticket._id){
-                            <div>
-                                <strong>{{ticket.eventName}} </strong>
-                                <p class="mb-0 ">Date:{{ticket.createdAt | date}} </p>
-                                <p class="mb-0 ">Reference Code:{{ticket.refCode }}</p>
-                                <p class="mb-0 ">Number of tickets:{{ticket.numOfTickets }}</p>
-                                <!-- <p class="mb-0 ">id:{{ticket.eventId }}</p> -->
-                                <hr>
+                            <div class="ticket">
+                                <div class="ticket-details">
+                                    <strong>{{ticket.eventName}}</strong>
+                                    <p class="mb-0 mt-2">Date: {{ticket.createdAt | date}} </p>
+                                    <p class="mb-0">Reference Code: {{ticket.refCode }}</p>
+                                    <p class="mb-0">Number of tickets: {{ticket.numOfTickets }}</p>
+                                </div>
+                                <div class="ticket-actions">
+                                    <button class="btn btn-secondary m-1" (click)="deleteTicket(ticket._id)">Delete</button>
+                                    <button class="btn btn-primary m-1"  (click)="routeTo(ticket)" >View Event</button>
+                                </div>
                             </div>
                             }
                         </div>
                     </li>
                 </ul>
             </div>
-
-            <!-- <div class="p-3 text-center text-muted">
+            <!-- @if(tickets.length === 0){
+            <div class="p-3 text-center text-muted">
                 No tickets booked yet.
-            </div> -->
-
-
+            </div>
+            } -->
         </div>
     </div>
 </div>

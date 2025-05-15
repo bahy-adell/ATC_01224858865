@@ -4,32 +4,49 @@
     <div class="col-md-5">
       <div class="main-img">
         <img class="img-fluid" [src]="imgDomain+ event.image" [alt]="event.name" title="event image">
-
       </div>
     </div>
-
-    <div class="col-md-7">
-      <div class="main-description px-2">
+    <div class="col-md-7 details-container">
+      <div class="main-description">
         <div class="category text-bold">{{event.category}}</div>
-        <div class="event-title text-bold my-3">{{event.name}}</div>
-        <div class="price-area my-4">
-          <p class="new-price text-bold mb-1">{{event.price}}</p>
+        <div class="event-title text-bold">{{event.name}}</div>
+        <p class="description">{{event.description}}.</p>
+        <hr>
+      </div>
+      <div class="event-details mt-3">
+        <p class="details-title text-color mb-2">Event Details:</p>
+        <div class="price-area ">
+          <p class="new-price text-bold "><span class="bold">Price:</span> {{event.price|currency}}</p>
         </div>
-      </div>
+        <div class="venue-area ">
+          <p class="venue-title text-bold "><span class="bold">Venue:</span> {{event.venue}}.</p>
+        </div>
+        <div class="date-area ">
+          <p class="date-title text-bold mb-5"><span class="bold">Date: </span>{{event.date|date:'dd/MM/yyyy'}}</p>
+        </div>
 
-      <div class="event-details my-4">
-        <p class="details-title text-color mb-1">event Details</p>
-        <p class="description">{{event.description}}</p>
       </div>
-      <div>
-        <button class="m-2 p-2" (click)="book(event._id)">Book Now</button>
+      <div class="book-now-container">
+        <button class="p-2 mt-3 m-1" (click)="book(event._id)" popovertarget="bookDone">Book Now</button>
+         @if(isAdmin ){
+        <button class="  p-2 mt-3 m-1" (click)="delete(event._id)" popovertarget="bookDeleted">Delete</button>
+          }
+        <div popover id="bookDone" class="custom-popover">
+          <h2 class="header">Congratulations!</h2>
+          <div class="content">
+            <p>You have successfully booked the event</p>
+            <p>You can now view your tickets in the <a href="/my-tickets">My Tickets</a> page</p>
+          </div>
+        </div>
+        <div popover id="bookDeleted" class="custom-popover">
+          <h2 class="header">Event Deleted </h2>
+          <div class="content">
+            <p>You have successfully deleted the event</p>
+          </div>
+        </div>
+
         <p>{{errorMessage}}</p>
       </div>
-
-
-
     </div>
-
   </div>
-
 </div>

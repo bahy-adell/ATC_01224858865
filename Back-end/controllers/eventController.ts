@@ -6,6 +6,7 @@ import path from "path";
 import customErrors from "../middlwares/Errors";
 import { uploadSingleImage } from "../middlwares/uploadImages";
 import Features from "../middlwares/features";
+import bookingModel from "../Models/bookingModel";
 
 export const createEvent = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
 
@@ -17,7 +18,6 @@ export const uploadImage = uploadSingleImage("image");
 
 export const resizeImage = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   if (!req.file) return next();
-
   const imageName = `event-${Date.now()}.jpeg`;
   const imagePath = path.join("uploads", "events", imageName);
 
@@ -27,7 +27,7 @@ export const resizeImage = asyncHandler(async (req: Request, res: Response, next
     .jpeg({ quality: 90 })
     .toFile(imagePath)
   req.body.image = `/uploads/events/${imageName}`
-  next();
+  next()
 });
 
 export const updateEvent = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -43,7 +43,6 @@ export const deleteEvent = asyncHandler(async (req: Request, res: Response, next
   if (!event) {
     return next(new customErrors(req.t("event_not_found"), 404))
   }
-  event.save();
   res.status(204).json({ message: req.t("deleted_successfully") });
 });
 
@@ -65,4 +64,5 @@ export const getAllEvents = asyncHandler(async (req: Request, res: Response, nex
     return next(new customErrors(req.t("No_more_events"), 404))
   }
   res.status(200).json({ pagination: features.paginationResult, data: events });
+  
 });

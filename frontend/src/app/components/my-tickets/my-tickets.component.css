@@ -1,5 +1,29 @@
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+.container .card {
+  border-radius: 30px;
+  background-color: transparent;
+  border: none;
+}
+.container .card .card-header {
+  border-radius: 30px;
+  border: none;
+  height: 100px;
+  background-color: var(--secondary);
+  color: var(--background);
+  display: flex;
+  justify-content: center;
+}
+.container .card .card-header h2 {
+  font-weight: 900;
+  margin: auto;
+}
+.container .card .card-body .list-group .list-group-item {
+  background-color: transparent;
+  border: none;
+}
+.container .card .card-body .list-group .list-group-item .ticket-list .ticket {
+  background-color: var(--primary);
+  border-radius: 30px;
+  color: var(--background);
+  padding: 20px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=my-tickets.component.css.map */

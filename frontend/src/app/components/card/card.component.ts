@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { DescriptionPipe } from '../../pipes/description.pipe';
-import { RouterLink } from '@angular/router';
-import { DataService } from '../../services/data.service';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Location } from '@angular/common';
 
@@ -21,16 +20,24 @@ export class CardComponent {
 
   constructor(
     private _eventService: EventService,
-    private _dataService: DataService,
     private _authService: AuthService,
-    private _location: Location
+    private _location: Location,
+    private _router: Router
   ) {
     this.imgDomain = this._eventService.eventImages;
     this.isAdmin = this._authService.isAdmin();
     this.atDashboard = this._location.path().includes('/dashboard');
   }
   
-  setId(id:string){
-    this._dataService.setEventID(id);
+  book(id: string) {
+    this._router.navigate(['/event-details', id]);
   }
-}
+  update(id: string) {
+    this._router.navigate(['/update-event', id]);
+  }
+  delete(id :string){
+    
+    this._router.navigate(['/event-details', id]);
+  }
+  }
+
