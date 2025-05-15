@@ -8,10 +8,9 @@ import i18nMiddleware from './middlwares/i18n'
 const app : express.Application = express();
 app.use(express.json());
 
-app.options('*', cors());
 app.use(cors({
   origin: function (origin, callback) {
-    // const allowedOrigins = ['http://localhost:4200', 'http://localhost:3000'];
+    // const allowedOrigins = ['http://localhost:4200',https://atc-01224858865-angular.vercel.app 'http://localhost:3000'];
     const allowedOrigins = ['https://atc-01224858865-angular.vercel.app', 'https://atc-01224858865-last.vercel.app'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, origin);
@@ -23,7 +22,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
-
+app.options('*', cors());
 
 database();
 dotenv.config();
