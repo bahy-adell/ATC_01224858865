@@ -8,6 +8,7 @@ const bookingSchema = new mongoose_1.Schema({
     eventName: { type: String, required: true },
     price: { type: Number, required: true },
     numOfTickets: { type: Number, default: 1 },
+    eventDate: { type: Date, required: true },
     createdAt: { type: Date, required: true },
 }, {
     timestamps: true

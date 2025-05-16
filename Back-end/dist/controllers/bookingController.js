@@ -18,7 +18,6 @@ const bookingModel_1 = __importDefault(require("../Models/bookingModel"));
 const eventModel_1 = __importDefault(require("../Models/eventModel"));
 const features_1 = require("../middlwares/features");
 const Errors_1 = __importDefault(require("../middlwares/Errors"));
-// interface newRequest extends Request { user?: Users; }
 exports.bookEvent = (0, express_async_handler_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a._id;
@@ -41,6 +40,7 @@ exports.bookEvent = (0, express_async_handler_1.default)((req, res, next) => __a
         eventId: eventId,
         eventName: event === null || event === void 0 ? void 0 : event.name,
         price: event === null || event === void 0 ? void 0 : event.price,
+        eventDate: event === null || event === void 0 ? void 0 : event.date,
         refCode: new features_1.utils().generateReferenceCode(),
         createdAt: Date.now()
     });
@@ -70,9 +70,20 @@ exports.getEventTickets = (0, express_async_handler_1.default)((req, res, next) 
 }));
 exports.deleteTicket = (0, express_async_handler_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const Id = req.params.id;
-    const ticket = yield bookingModel_1.default.findByIdAndDelete(req.params.id);
+    const ticket = yield bookingModel_1.default.findById(req.params.id);
     if (!ticket) {
         return next(new Errors_1.default(req.t("ticket_not_found"), 404));
     }
-    res.status(204).json({ message: req.t("deleted_successfully") });
+    if (ticket.numOfTickets > 1) {
+        ticket.numOfTickets = ticket.numOfTickets - 1;
+        ticket.save();
+        res.status(204).json({ message: req.t("deleted_successfully") });
+        return;
+    }
+    if (ticket.numOfTickets = 1) {
+        yield bookingModel_1.default.findByIdAndDelete(req.params.id);
+        res.status(204).json({ message: req.t("deleted_successfully") });
+        return;
+    }
+    res.status(404).json({ message: req.t("Error in delete ticket") });
 }));
