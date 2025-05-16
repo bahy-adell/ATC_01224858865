@@ -15,6 +15,10 @@ EventBookingSystem/
 Before you begin, ensure you have the following installed:
 - Node.js (v14 or higher)
 - npm (Node Package Manager)
+- TypeScript (install globally):
+  ```bash
+  npm install -g typescript
+  ```
 - Angular CLI (`npm install -g @angular/cli`)
 - MongoDB (for database)
 
@@ -32,13 +36,12 @@ Before you begin, ensure you have the following installed:
    npm install
    ```
 
-34. Start the backend server:
-    for development
+3. Start the backend server:
    ```bash
+   # For development
    npm run dev
-   ```
-    for production
-   ```bash
+
+   # For production
    npm run build
    npm run prod
    ```
@@ -98,4 +101,14 @@ The frontend application will be available at `http://localhost:4200`
 ## Deployment
 
 The application is configured for deployment on Vercel. Both frontend and backend have their own `vercel.json` configuration files.
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. Make sure MongoDB is running and accessible
+2. Ensure all dependencies are installed correctly
+3. Check the console for any error messages
+4. Verify that ports 3000 (backend) and 4200 (frontend) are not in use
+
 
