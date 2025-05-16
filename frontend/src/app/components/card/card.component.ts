@@ -2,13 +2,13 @@ import { Component, Input } from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { DescriptionPipe } from '../../pipes/description.pipe';
-import { RouterLink, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-card',
-  imports: [CurrencyPipe, DatePipe, DescriptionPipe, RouterLink],
+  imports: [CurrencyPipe, DatePipe, DescriptionPipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })

@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-event-details',
-  imports: [NavbarComponent, FooterComponent, CurrencyPipe, DatePipe],
+  imports: [NavbarComponent, CurrencyPipe, DatePipe],
   templateUrl: './event-details.component.html',
   styleUrl: './event-details.component.scss'
 })

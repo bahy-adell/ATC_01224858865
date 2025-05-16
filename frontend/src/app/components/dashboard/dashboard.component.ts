@@ -9,7 +9,7 @@ import { Pagination } from '../../interfaces/pagination';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NavbarComponent, FooterComponent, RouterModule, CardComponent],
+  imports: [NavbarComponent, RouterModule, CardComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
