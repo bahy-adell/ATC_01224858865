@@ -5,10 +5,12 @@ import { AuthService } from '../../services/auth.service';
 import { BookingService } from '../../services/booking.service';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { CustomeDatePipe } from '../../pipes/custome-date.pipe';
+
 
 @Component({
   selector: 'app-my-tickets',
-  imports: [NavbarComponent, DatePipe],
+  imports: [NavbarComponent, CustomeDatePipe],
   templateUrl: './my-tickets.component.html',
   styleUrl: './my-tickets.component.scss'
 })

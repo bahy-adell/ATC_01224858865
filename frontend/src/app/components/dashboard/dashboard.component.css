@@ -38,58 +38,35 @@ app-navbar {
   font-size: 2rem;
   font-weight: 500;
 }
+.body .container .header .btnCreate {
+  color: var(--background);
+  background-color: var(--primary);
+  border-radius: 99rem;
+  margin: 0 5px;
+  border: none;
+  font-weight: 900;
+}
+.body .container .header .btnCreate:hover {
+  background-color: var(--secondary);
+  color: var(--background);
+}
 .body .container .header .filters {
-  animation: hideInit both;
-  animation-timeline: view(60% 0%);
-  position: sticky;
-  margin-top: 30px;
-  padding: 0 5%;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   z-index: 10;
 }
-.body .container .header .filters .btn-group {
-  position: relative;
-  z-index: 10;
-}
-.body .container .header .filters .btn-group .category-dropdown {
-  background-color: var(--light-secondary);
-  color: var(--text-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 10;
-}
-.body .container .header .filters .btn-group .category-dropdown:hover {
-  background-color: var(--secondary);
-  color: var(--light-surface);
-}
-.body .container .header .filters .btn-group .dropdown-menu {
-  position: absolute;
-  z-index: 11;
-  background-color: var(--light-secondary);
-  border: 1px solid var(--text-primary);
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.body .container .header .filters .btn-group .dropdown-menu li a {
-  color: var(--text-primary);
-}
-.body .container .header .filters .btn-group .dropdown-menu li a:hover {
-  background-color: var(--primary);
+.body .container .header .filters button {
   color: var(--background);
-  font-weight: 700;
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: none;
+  font-weight: 400;
 }
-.body .container .header .filters .search-input {
-  width: 25%;
-  height: 40px;
-  border-radius: 99rem;
-  border: 1px solid var(--text-primary);
-  padding: 0 1.5rem;
+.body .container .header .filters button:hover {
+  background-color: var(--secondary);
+  color: var(--background);
 }
 .body .container .events {
   margin-top: 50px;
@@ -155,4 +132,28 @@ app-navbar {
 }
 .body .container .events .view-more .view-more-button:active {
   transform: translateY(0);
+}
+.body .container .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.body .container .pagination .page-item .page-link {
+  background-color: var(--light-secondary);
+  color: var(--background);
+  background-color: var(--primary);
+  border-radius: 99rem;
+  margin: 0 5px;
+  border: none;
+  font-weight: 900;
+}
+.body .container .pagination .page-item .page-link:hover {
+  background-color: var(--secondary);
+  color: var(--background);
+}
+.body .container .pagination .page-item .current-page {
+  background-color: var(--secondary);
+  color: var(--background);
+  box-shadow: 0 0 10px var(--text-primary);
 }/*# sourceMappingURL=dashboard.component.css.map */

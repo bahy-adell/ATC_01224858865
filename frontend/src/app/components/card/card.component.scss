@@ -10,7 +10,7 @@
             position: absolute;
             background-color: var(--light-primary);
             border: none;
-            font-weight: 700;
+            font-weight:700;
             font-size: 1.25rem;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -24,7 +24,6 @@
             }
         }
         display: flex;
-        flex-direction: row;
         align-items: center;
         .update {
             min-width: 190px;

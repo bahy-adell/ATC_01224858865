@@ -7,10 +7,12 @@
   border-radius: 30px;
   border: none;
   height: 100px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   color: var(--background);
   display: flex;
   justify-content: center;
+  width: 300px;
+  margin: 0 auto;
 }
 .container .card .card-header h2 {
   font-weight: 900;
@@ -26,4 +28,30 @@
   color: var(--background);
   padding: 20px;
   margin-bottom: 10px;
+}
+.container .card .card-body .list-group .list-group-item .btn1 {
+  background-color: var(--btn);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+.container .card .card-body .list-group .list-group-item .btn1:hover {
+  background-color: var(--primary);
+  color: var(--background);
+  box-shadow: 0px 0px 20px var(--text-primary);
+  transition: all 0.2s ease-in-out;
+}
+.container .card .card-body .list-group .list-group-item .btn2 {
+  background-color: var(--btn);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+.container .card .card-body .list-group .list-group-item .btn2:hover {
+  background-color: var(--primary);
+  color: var(--background);
+  box-shadow: 0px 0px 20px var(--text-primary);
+  transition: all 0.2s ease-in-out;
 }/*# sourceMappingURL=my-tickets.component.css.map */

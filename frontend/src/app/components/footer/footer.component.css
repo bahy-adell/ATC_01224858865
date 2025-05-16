@@ -1,80 +1,61 @@
-.body {
+.footer {
+  background-color: var(--footer);
+  color: var(--dark-text-primary);
+  padding: 40px 20px 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+.footer .footer-content {
   display: flex;
-  font-family: "Euclid Circular A", "Poppins";
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
 }
-
-* {
-  box-sizing: border-box;
+.footer .footer-content .footer-left,
+.footer .footer-content .footer-links,
+.footer .footer-content .footer-info {
+  flex: 1 1 250px;
 }
-
-footer {
-  min-width: 99dvw;
-  border-radius: 20px 20px 0 0;
-  padding: 80px 0 0;
-  background: var(--secondary);
-  color: #f9f9f9;
+.footer .footer-content .footer-left h3,
+.footer .footer-content .footer-left h4,
+.footer .footer-content .footer-links h3,
+.footer .footer-content .footer-links h4,
+.footer .footer-content .footer-info h3,
+.footer .footer-content .footer-info h4 {
+  margin-bottom: 10px;
+  color: var(--dark-text-primary);
 }
-
-footer article {
-  width: 40%;
-  border: 3px solid var(--text-primary);
-  display: flex;
-  justify-content: center;
-  border-radius: 99rem;
-  margin: -70px 20px 20px 50%;
-  transform: translateX(-50%);
-  padding: 30px 50px 30px;
-  background-color: rgba(17, 0, 255, 0);
-  -webkit-backdrop-filter: blur(100px);
-  backdrop-filter: blur(0.5rem);
+.footer .footer-content .footer-left p,
+.footer .footer-content .footer-left a,
+.footer .footer-content .footer-links p,
+.footer .footer-content .footer-links a,
+.footer .footer-content .footer-info p,
+.footer .footer-content .footer-info a {
+  font-size: 14px;
+  color: var(--dark-text-primary);
 }
-
-footer article h2 {
-  font-weight: 900;
-  font-size: 3rem;
-  color: var(--text-primary);
+.footer .footer-content .footer-left a,
+.footer .footer-content .footer-links a,
+.footer .footer-content .footer-info a {
+  text-decoration: none;
 }
-
-footer section {
-  padding: 0 50px;
+.footer .footer-content .footer-left a:hover,
+.footer .footer-content .footer-links a:hover,
+.footer .footer-content .footer-info a:hover {
+  color: var(--dark-text-primary);
+  text-decoration: underline;
 }
-
-section.top {
-  padding-top: 30px;
-  margin-bottom: 48px;
-}
-
-section.top img {
-  display: block;
-  height: 30px;
-  margin: 0 0 30px;
-}
-
-section.top ul {
+.footer .footer-content .footer-links ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(4, 1fr);
 }
-
-section.top ul li a {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--background);
+.footer .footer-content .footer-links ul li {
+  margin-bottom: 8px;
 }
-
-section.top h3 {
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-
-section.bottom {
-  padding-top: 10px;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.4);
+.footer .footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  margin-top: 30px;
   font-size: 13px;
+  color: #888;
 }/*# sourceMappingURL=footer.component.css.map */

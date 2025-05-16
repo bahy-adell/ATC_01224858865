@@ -5,6 +5,7 @@
             <h2>Booked Tickets</h2>
         </div>
         <div class="card-body">
+
             <div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -12,14 +13,14 @@
                             @for(ticket of tickets; track ticket._id){
                             <div class="ticket">
                                 <div class="ticket-details">
-                                    <strong>{{ticket.eventName}}</strong>
-                                    <p class="mb-0 mt-2">Date: {{ticket.createdAt | date}} </p>
-                                    <p class="mb-0">Reference Code: {{ticket.refCode }}</p>
-                                    <p class="mb-0">Number of tickets: {{ticket.numOfTickets }}</p>
+                                    <strong class="fs-5">{{ticket.eventName}}</strong>
+                                    <p class="m-1 mt-2">booked At: {{ticket.createdAt | customeDate}} </p>
+                                    <p class="m-1">Event Date: {{ticket.eventDate| customeDate }}</p>
+                                    <p class="m-1">Number of tickets: {{ticket.numOfTickets }}</p>
                                 </div>
                                 <div class="ticket-actions">
-                                    <button class="btn btn-secondary m-1" (click)="deleteTicket(ticket._id)">Delete</button>
-                                    <button class="btn btn-primary m-1"  (click)="routeTo(ticket.eventId)" >View Event</button>
+                                    <button class="btn1 m-1" (click)="deleteTicket(ticket._id)">Delete</button>
+                                    <button class="btn2 m-1"  (click)="routeTo(ticket.eventId)" >View Event</button>
                                 </div>
                             </div>
                             }

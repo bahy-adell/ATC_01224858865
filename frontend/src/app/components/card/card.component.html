@@ -1,4 +1,4 @@
-<div class="event event-1">
+<div class="event">
     <div class="card-overview">
         @if(isAdmin && atDashboard){
         <button class="update" (click)="update(event._id)">Update</button>
@@ -29,5 +29,7 @@
     @if(isAdmin && atDashboard){
     <button class="delete" (click)="delete(event._id)">Delete</button>
     }
+     @if(!atDashboard){
     <button class="event-button" (click)="book(event._id)">Book Now</button>
+     }
 </div>

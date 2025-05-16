@@ -31,6 +31,7 @@ export const bookEvent = asyncHandler(async (req: any, res: Response, next: Next
       eventId: eventId,
       eventName: event?.name,
       price: event?.price,
+      eventDate:event?.date,
       refCode: new utils().generateReferenceCode(),
       createdAt: Date.now()
     }

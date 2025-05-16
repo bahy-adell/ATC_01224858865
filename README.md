@@ -67,14 +67,18 @@ The backend server will start running on `http://localhost:3000`
 
 The frontend application will be available at `http://localhost:4200`
 
+## Login as Admin
+- Email : Areeb@gmail.com
+- Password : 111111
+
 ## Features
 
 - User authentication and authorization
 - Event creation and management
 - Event booking and registration
-- User profile management
-- Admin dashboard
-- Responsive design
+- Admin dashboard 
+- Light and Dark mode
+ 
 
 ## Tech Stack
 

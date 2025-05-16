@@ -8,6 +8,8 @@
   --light-text-primary: #001f3f;
   --light-text-secondary: #003366;
   --light-text-tertiary: #4d94ff;
+  --light-footer: #ec5f00;
+  --light-header: #002040;
   --dark-primary: #00b4ff;
   --dark-secondary: #ff8533;
   --dark-background: #002040;
@@ -16,6 +18,8 @@
   --dark-text-primary: #ffffff;
   --dark-text-secondary: #b3d4ff;
   --dark-text-tertiary: #4d94ff;
+  --dark-header: #ec5f00;
+  --dark-footer: #00b4ff;
   --primary: var(--light-primary);
   --secondary: var(--light-secondary);
   --background: var(--light-background);

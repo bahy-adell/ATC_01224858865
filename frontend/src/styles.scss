@@ -35,6 +35,8 @@ $dark-text-tertiary: #4d94ff; // Medium Blue Text
     --light-text-secondary: #{$light-text-secondary};
     --light-text-tertiary: #{$light-text-tertiary};
     --light-footer: #{$light-footer};
+    --light-header: #{$dark-background};
+
 
 
     // Dark mode
@@ -46,7 +48,8 @@ $dark-text-tertiary: #4d94ff; // Medium Blue Text
     --dark-text-primary: #{$dark-text-primary};
     --dark-text-secondary: #{$dark-text-secondary};
     --dark-text-tertiary: #{$dark-text-tertiary};
-    --dark-footer: #{$dark-footer};
+    --dark-header: #{$light-footer};
+    --dark-footer: #{$dark-primary};
 
 
     // Default to light mode

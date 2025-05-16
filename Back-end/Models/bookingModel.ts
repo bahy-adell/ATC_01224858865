@@ -10,6 +10,7 @@ const bookingSchema :Schema =new Schema <Booking>(
        eventName:{type:String ,required :true},
        price:{type:Number ,required :true},
        numOfTickets:{type:Number , default:1},
+       eventDate:{type :Date , required:true},
        createdAt:{type :Date , required:true},
     },
     {

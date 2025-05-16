@@ -37,76 +37,24 @@ app-navbar {
                 }
             }
             .filters {
-                animation: hideInit both;
-                animation-timeline: view(60% 0%);
-                position: sticky;
-                margin-top: 30px;
-                padding: 0 5%;
+                margin-top: 20px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                justify-content: space-between;
                 z-index: 10;
 
                 button {
                     color: var(--background);
                     background-color: var(--primary);
-                    border-radius: 99rem;
-                    margin: 0 5px;
+                    border-radius: 10px;
                     border: none;
-                    font-weight: 900;
+                    font-weight:400;
                     &:hover {
                         background-color: var(--secondary);
                         color: var(--background);
                     }
                 }
 
-                .btn-group {
-                    position: relative;
-                    z-index: 10;
-
-                    .category-dropdown {
-                        background-color: var(--light-secondary);
-                        color: var(--text-primary);
-                        padding: 0.75rem 1.5rem;
-                        border-radius: 8px;
-                        transition: all 0.3s ease;
-                        position: relative;
-                        z-index: 10;
-
-                        &:hover {
-                            background-color: var(--secondary);
-                            color: var(--light-surface);
-                        }
-                    }
-
-                    .dropdown-menu {
-                        position: absolute;
-                        z-index: 11;
-                        background-color: var(--light-secondary);
-                        border: 1px solid var(--text-primary);
-                        border-radius: 8px;
-                        margin-top: 0.5rem;
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                        li {
-                            a {
-                                color: var(--text-primary);
-                                &:hover {
-                                    background-color: var(--primary);
-                                    color: var(--background);
-                                    font-weight: 700;
-                                }
-                            }
-                        }
-                    }
-                }
-                .search-input {
-                    width: 25%;
-                    height: 40px;
-                    border-radius: 99rem;
-                    border: 1px solid var(--text-primary);
-                    padding: 0 1.5rem;
-                }
             }
         }
         .events {

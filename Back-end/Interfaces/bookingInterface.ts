@@ -7,6 +7,8 @@ export interface Booking extends Document {
   eventName:string;
   price:number;
   numOfTickets?:number;
+  eventDate:Date;
   createdAt:Date;
+
 
 }

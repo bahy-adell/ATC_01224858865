@@ -8,7 +8,6 @@
 }
 .event .card-overview {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 .event .card-overview button {
@@ -133,6 +132,7 @@
   border-radius: 30px;
   top: 400px;
   background-color: var(--light-primary);
+  color: var(--background);
   border: none;
   font-weight: 700;
   font-size: 1.25rem;
