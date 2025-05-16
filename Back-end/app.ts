@@ -10,10 +10,8 @@ app.use(express.json());
 
 app.use(cors({
   origin: function (origin, callback) {
-    // const allowedOrigins = ['http://localhost:4200','http://localhost:3000'];
+    const allowedOrigins = ['http://localhost:4200','http://localhost:3000','https://atc-01224858865-angular.vercel.app','https://atc-01224858865-last.vercel.app'];
     
-    const allowedOrigins = ['https://atc-01224858865-angular.vercel.app', 'https://atc-01224858865-last.vercel.app'];
-
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, origin);
     } else {
