@@ -2,10 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import asyncHandler from "express-async-handler";
 import bookingModel from "../Models/bookingModel";
 import eventModel from "../Models/eventModel";
-import { Users } from "../Interfaces/userInterface";
 import { utils } from "../middlwares/features";
 import customErrors from "../middlwares/Errors";
-// interface newRequest extends Request { user?: Users; }
 
 export const bookEvent = asyncHandler(async (req: any, res: Response, next: NextFunction): Promise<void> => {
   const userId = req.user?._id;
@@ -71,9 +69,23 @@ export const getEventTickets = asyncHandler(async (req: any, res: Response, next
 
 export const deleteTicket = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const Id = req.params.id;
-  const ticket = await bookingModel.findByIdAndDelete(req.params.id);
+  const ticket = await bookingModel.findById(req.params.id);
   if (!ticket) {
     return next(new customErrors(req.t("ticket_not_found"), 404))
   }
-  res.status(204).json({ message: req.t("deleted_successfully") });
+  if (ticket.numOfTickets! > 1){
+    ticket.numOfTickets= ticket.numOfTickets!-1;
+    ticket.save();
+    res.status(204).json({ message: req.t("deleted_successfully") });
+    return;
+
+  }
+  if (ticket.numOfTickets = 1){
+    await bookingModel.findByIdAndDelete(req.params.id);
+    res.status(204).json({ message: req.t("deleted_successfully") });
+    return;
+  }
+   res.status(404).json({ message: req.t("Error in delete ticket") });
+  
+  
 });
