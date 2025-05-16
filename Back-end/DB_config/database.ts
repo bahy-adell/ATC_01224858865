@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const database = () => {
-  // const uri = process.env.MONGODB_URI || process.env.DB;
-  const uri = process.env.DB;
+  const uri = process.env.MONGODB_URI || process.env.DB;
+  // const uri = process.env.DB;
 
 
   if (!uri) {

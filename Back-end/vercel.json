@@ -1,17 +1,25 @@
-
 {
   "version": 2,
   "builds": [
     {
       "src": "dist/app.js",
       "use": "@vercel/node",
-        "config": { "includeFiles": ["dist/**"] }
+      "config": { 
+        "includeFiles": ["dist/**"],
+        "buildCommand": "npm run build"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "dist/app.js"
+      "dest": "dist/app.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS"
+      }
     }
   ]
 }
