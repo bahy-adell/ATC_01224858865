@@ -1,20 +1,3 @@
-// import mongoose from "mongoose";
-// import dotenv from "dotenv";
-
-// dotenv.config(); 
-// const database = ()=>{
-     
-//     mongoose.connect(process.env.MONGODB_URI!).then(
-//         ()=>{
-//             console.log(`database connected to ${process.env.MONGODB_URI}`);
-//         }).catch(  (err:Error)=>{
-//             console.log(err);
-//         });
-// }
-
-
-// export default database ;
-
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
